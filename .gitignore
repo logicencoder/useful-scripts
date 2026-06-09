@@ -1,0 +1,25 @@
+# Secrets
+config/mexc_keys.json
+
+# Runtime / local state
+logs/
+orderbook_logs/
+data/
+*.log
+config/protobuf_setup_status.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# Editor
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

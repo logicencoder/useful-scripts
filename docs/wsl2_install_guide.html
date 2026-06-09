@@ -1,0 +1,175 @@
+<h2>How To Install WSL2 on Windows 10/11 Step-by-Step Guide</h2>
+<h3>1. Introduction to WSL and WSL2</h3>
+Learn how to install <strong>WSL2 on Windows 10/11 and run a Linux</strong> environment directly on Windows without needing a virtual machine.". It is especially useful for developers working in environments that require Linux tools and scripts.
+
+<strong>WSL1</strong> runs Linux binaries directly on the Windows kernel, while <strong>WSL2</strong> provides a more complete Linux kernel, allowing for better compatibility, performance, and more advanced features like Docker support.
+<h3>2. System Requirements</h3>
+<ul>
+ 	<li><strong>Windows 10 Version</strong>: You need at least <strong>version 1903</strong> (build 18362) or higher for WSL2.</li>
+ 	<li><strong>Windows 11</strong>: Fully supported.</li>
+</ul>
+You can check your version by typing <code>winver</code> in the Start menu search or command prompt.
+<h3>3. Check Windows Version</h3>
+<ol>
+ 	<li>Press <code>Win + R</code> to open the Run dialog box.</li>
+ 	<li>Type <code>winver</code> and press <strong>Enter</strong>.</li>
+ 	<li>Confirm that your version is <strong>1903 or higher</strong> for Windows 10, or <strong>Windows 11</strong>.</li>
+</ol>
+&nbsp;
+
+<img class="alignnone size-medium wp-image-939" src="http://192.168.1.136/wp-content/uploads/2024/09/winver-300x272.webp" alt="" width="300" height="272" />
+
+If your Windows version is older, you’ll need to update before proceeding.
+<h3>4. Enable WSL and Virtual Machine Platform Features</h3>
+WSL2 requires two optional features to be enabled: <strong>WSL</strong> and <strong>Virtual Machine Platform</strong>.
+<ol>
+ 	<li style="list-style-type: none;">
+<ol>
+ 	<li>Open <strong>PowerShell as Administrator</strong> by typing <code>powershell</code> into the Start menu, then right-clicking and selecting <strong>Run as Administrator</strong>.</li>
+ 	<li>Run the following command to enable WSL:</li>
+</ol>
+</li>
+</ol>
+<pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></pre>
+<ol>
+ 	<li style="list-style-type: none;">
+<ol>
+ 	<li>Next, enable the Virtual Machine Platform feature with this command:</li>
+</ol>
+</li>
+</ol>
+<pre><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></pre>
+<ol>
+ 	<li><strong>Restart your computer</strong> to apply the changes.</li>
+</ol>
+<h3>5. Install WSL2 Kernel Update</h3>
+Once your system restarts, you'll need to download and install the <strong>Linux Kernel Update Package</strong> for WSL2. Follow these steps:
+<ol>
+ 	<li>Visit the official Microsoft WSL2 kernel update page:
+<a href="https://aka.ms/wsl2kernel" target="_blank" rel="noopener">Download WSL2 Linux Kernel Update</a></li>
+ 	<li>Download the update package and run the installer.</li>
+</ol>
+<h3>6. Set WSL2 as the Default Version</h3>
+To set WSL2 as the default version, open <strong>PowerShell as Administrator</strong> again and run:
+<pre><code>wsl --set-default-version 2</code></pre>
+This ensures that any new Linux distributions you install will default to WSL2.
+<h3>7. Install a Linux Distribution</h3>
+You can now install your preferred Linux distribution from the <strong>Microsoft Store</strong>.
+<ol>
+ 	<li>Open the <strong>Microsoft Store</strong>.</li>
+ 	<li>Search for a distribution (e.g., Ubuntu, Debian, Kali Linux).</li>
+ 	<li>Select the distribution and click <strong>Install</strong>.</li>
+ 	<li>Once installed, launch the Linux distribution. You'll be asked to set up a <strong>username</strong> and <strong>password</strong>.</li>
+</ol>
+&nbsp;
+
+<img class="alignnone wp-image-940" src="http://192.168.1.136/wp-content/uploads/2024/09/msstore_ubuntu24-300x159.webp" alt="" width="700" height="372" />
+
+<strong>Example:</strong> Installing <strong>Ubuntu</strong>:
+<ul>
+ 	<li>Search for "Ubuntu" in the Microsoft Store.</li>
+ 	<li>Click on <strong>Install</strong>.</li>
+ 	<li>Once installation is done, launch it from the Start menu.</li>
+</ul>
+<h3>8. Updating from WSL1 to WSL2</h3>
+If you've already been using WSL1 and want to upgrade to WSL2, follow these steps:
+<ol>
+ 	<li style="list-style-type: none;">
+<ol>
+ 	<li><strong>List installed distributions</strong> to check if they're running WSL1 or WSL2:</li>
+</ol>
+</li>
+</ol>
+<pre><code>wsl --list --verbose</code></pre>
+<ol>
+ 	<li style="list-style-type: none;">
+<ol>
+ 	<li><strong>Set a specific distribution to use WSL2</strong> by running:</li>
+</ol>
+</li>
+</ol>
+<pre><code>wsl --set-version &lt;distro_name&gt; 2</code></pre>
+Replace <code>&lt;distro_name&gt;</code> with the name of your installed Linux distro (e.g., <code>Ubuntu</code>).
+
+<strong>Example:</strong>
+<pre><code>wsl --set-version Ubuntu 2</code></pre>
+<h3>9. Updating Linux Distribution</h3>
+Once your Linux distro is set up, it's important to update the package manager and the installed packages.
+<ol>
+ 	<li style="list-style-type: none;">
+<ol>
+ 	<li>Open your Linux terminal (Ubuntu, for example).</li>
+ 	<li>Run the following commands to update and upgrade packages:</li>
+</ol>
+</li>
+</ol>
+<pre><code>sudo apt update
+sudo apt upgrade</code></pre>
+<h3>10. Accessing WSL Files from Windows</h3>
+<img class="alignnone wp-image-890" src="http://192.168.1.136/wp-content/uploads/2024/09/screen1-300x150.png" alt="" width="700" height="350" />
+
+&nbsp;
+
+To access your WSL files from <strong>Windows File Explorer</strong>:
+<ol>
+ 	<li>Open <strong>File Explorer</strong>.</li>
+ 	<li>In the address bar, type:
+<pre><code>\\wsl$</code></pre>
+</li>
+ 	<li>You’ll see your running Linux distributions. You can access their files directly from here.</li>
+</ol>
+<h3>11. Accessing Windows Files from WSL</h3>
+You can access your Windows files directly from WSL by navigating to the <strong>/mnt</strong> directory. For example:
+<h2><img class="alignnone wp-image-892" src="http://192.168.1.136/wp-content/uploads/2024/09/screen2-300x150.png" alt="" width="700" height="350" /></h2>
+<ul>
+ 	<li><strong>C: drive</strong>: <code>/mnt/c/</code></li>
+ 	<li><strong>D: drive</strong>: <code>/mnt/d/</code></li>
+</ul>
+<strong>Example:</strong>
+<pre><code>cd /mnt/c/Users/YourUsername/Documents</code></pre>
+<h3>12. Configuring WSL (Optional)</h3>
+To configure memory, processors, or other system settings, create a <code>.wslconfig</code> file in your user directory (<code>C:\Users\&lt;YourUsername&gt;\</code>). Here’s an example of a configuration file:
+<pre><code>[wsl2]
+# Settings apply across all Linux distros running on WSL 2
+# Can see memory in wsl2 with "free -m"
+# Goes in windows home directory as .wslconfig
+[wsl2]
+
+# Limits VM memory to use no more than 48 GB, defaults to 50% of ram
+memory=24GB
+
+# Sets the VM to use 32 virtual processors
+processors=32
+
+# Sets the amount of swap storage space to 64GB, default is 25% of available RAM
+swap=64GB
+</code></pre>
+<h3>13. Basic Troubleshooting</h3>
+<ul>
+ 	<li><strong>Kernel update errors</strong>: If you encounter errors related to the kernel, ensure that you’ve downloaded and installed the latest kernel package.</li>
+ 	<li><strong>Virtual Machine not starting</strong>: Ensure that the <strong>Virtual Machine Platform</strong> feature is enabled.</li>
+ 	<li><strong>Performance issues</strong>: Configure your <code>.wslconfig</code> file to optimize resource usage.</li>
+</ul>
+<h3>14. Useful Commands</h3>
+<ul>
+ 	<li><strong>List installed distributions:</strong>
+<pre><code>wsl --list --verbose</code></pre>
+</li>
+ 	<li><strong>Set default WSL version:</strong>
+<pre><code>wsl --set-default-version 2</code></pre>
+</li>
+ 	<li><strong>Change version of a specific distribution:</strong>
+<pre><code>wsl --set-version &lt;distro_name&gt; 2</code></pre>
+</li>
+ 	<li><strong>Terminate a running distribution:</strong>
+<pre><code>wsl --terminate &lt;distro_name&gt;</code></pre>
+</li>
+ 	<li><strong>Unregister a distribution</strong> (this deletes the distro):
+<pre><code>wsl --unregister &lt;distro_name&gt;</code></pre>
+</li>
+ 	<li><strong>Launch a specific distribution:</strong>
+<pre><code>wsl -d &lt;distro_name&gt;</code></pre>
+</li>
+</ul>
+<h3>15. Conclusion</h3>
+WSL2 is a powerful tool that provides a full Linux environment on Windows without the need for a virtual machine. By following this guide, you’ve enabled WSL2, installed a Linux distribution, and learned useful commands for managing your environment.

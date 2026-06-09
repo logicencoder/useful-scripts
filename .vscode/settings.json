@@ -1,0 +1,14 @@
+{
+  "python.analysis.extraPaths": [
+    "./generated_proto"
+  ],
+  "python.autoComplete.extraPaths": [
+    "./generated_proto"
+  ],
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "pylance.include": [
+    "generated_proto/**"
+  ],
+  "python.analysis.autoImportCompletions": true
+}
