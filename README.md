@@ -36,8 +36,7 @@ useful_scripts/
 ├── generated_proto/               # ← compiled decoders (fixed name — scripts depend on it)
 ├── config/                # API keys (mexc_keys.json)
 ├── logs/                  # Runtime logs
-├── discord/ docs/ assets/
-└── !old/                  # Archived old scripts
+└── discord/, docs/, assets/
 ```
 
 ## MEXC + Gate.io — orderbooks and trades

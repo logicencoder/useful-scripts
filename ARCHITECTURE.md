@@ -17,7 +17,6 @@ useful_scripts/
 ├── generated_proto/               # 16× *_pb2.py — fixed path; all monitors import here
 ├── mexc_proto_loader.py           # Single Python import entry for monitors
 ├── config/                        # mexc_keys.json (gitignored), example template
-├── !old/                          # Superseded script names and backup snapshots
 ├── discord/, docs/, assets/
 └── logs/ (gitignored)
 ```
@@ -53,10 +52,6 @@ useful_scripts/
 | `config/mexc_keys.example.json` | Template |
 
 Scripts must be started with cwd = repo root so `generated_proto/`, `config/`, and `logs/` resolve.
-
-## Archive policy (`!old/`)
-
-Older naming (`protodepth_20_1a`, `bal_mon_mexc_*`, `mexc_depth_*`, `scripts_backup_20250806_043439/`) kept for reference. Mapping table in `!old/README.md`. Do not run archived scripts unless recovering an old port (e.g. 8007).
 
 ## Environments
 
