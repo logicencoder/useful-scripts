@@ -98,6 +98,27 @@ Run from this directory. Configure via env vars — no secrets in git.
 
 Smoke deps: `pip install -r requirements-smoke.txt`
 
+## Wave 2 operator arsenal (2026-06)
+
+Trading desk, arb diagnostics, spread research, ETH monitor probes.
+
+| Script | Purpose |
+|--------|---------|
+| `util_arb_diagnostics_cli.py` | `ARB_URL` — scanner-feeds, hub, rank, parity, api-timing |
+| `mexc_feed_health_cli.py` | `MEXC_TRADING_URL` status + bot perf metrics |
+| `mexc_debug_log_tail.py` | Poll or `--ws` tail `/api/debug-logs` |
+| `mexc_gate_scanner_feed_audit.py` | Scanner feed audit + optional CEX REST ping |
+| `gate_reload_symbols_cli.py` | `GATE_TD_URL` reload + poll (twin of MEXC) |
+| `mexc_multiconn_shard_probe.py` | `MULTICOIN_COINS_JSON` protobuf WS shard probe |
+| `dnx_cex_dex_spread_tui.py` | DNX MEXC/Gate vs UniV3 refresh board (`GETH_HTTP`) |
+| `eth_univ3_quoter_ladder.py` | On-chain buy/sell ladder for one pool |
+| `eth_swap_monitor_smoke.py` | `ETH_SWAP_MONITOR_URL` mode + stats smoke |
+| `eth_rpc_provider_probe.py` | HTTP/WS latency table for RPC providers |
+
+Shared: `util_univ3_quoter.py` (imported by ladder + spread scripts).
+
+Wave 2 deps: `pip install -r requirements-wave2.txt` (plus wave 1 smoke deps).
+
 ## Quick start
 
 ```bash
