@@ -119,6 +119,29 @@ Shared: `util_univ3_quoter.py` (imported by ladder + spread scripts).
 
 Wave 2 deps: `pip install -r requirements-wave2.txt` (plus wave 1 smoke deps).
 
+## Wave 3 operator arsenal (2026-06)
+
+WP / Hostinger SSH ops, DNX flow, karaoke, CS agent, MEV, live-stats deep probes.
+
+| Script | Purpose |
+|--------|---------|
+| `hostinger_log_tail.sh` | `HOSTINGER_SSH` + `WP_REMOTE_ROOT` tail debug logs |
+| `wp_sitemap_generate_ping.sh` | Remote wp-cli sitemap generate + ping |
+| `wp_le_settings_ops_smoke.py` | Remote le-settings + log table counts |
+| `wp_visitor_stats_remote_verify.py` | `WP_URL` tracking snippet check |
+| `wp_indexnow_queue_status.py` | MEXC/Gate IndexNow queue via wp-cli |
+| `dnx_mexc_flow_report.py` | `DNX_MEXC_DB` SQLite IN/OUT report |
+| `dnx_swap_smoke.py` | `DNX_SWAP_URL` status + nonce + node health |
+| `util_karaoke_operator_preflight.sh` | Node/ffmpeg/GPU/API preflight |
+| `util_karaoke_job_smoke.sh` | `KARAOKE_API` job process + poll |
+| `util_cs_agent_model_benchmark.sh` | `CS_AGENT_URL` /api/models + test-one |
+| `eth_mev_builders_probe.py` | MEV builder init + bundle RPC probe |
+| `eth_mode2_backfill_cli.py` | Mode 2 stats + proof log tail |
+| `mexc_ws_dashboard_probe.py` | `/ws-dashboard` message capture |
+| `mexc_symbol_stats_probe.py` | Per-symbol debug + memory stats |
+| `mexc_multicoin_reload_cli.py` | `MULTICOIN_URL` reload + poll |
+| `util_stored_coins_validate.py` | `MULTICOIN_COINS_JSON` schema check |
+
 ## Quick start
 
 ```bash
