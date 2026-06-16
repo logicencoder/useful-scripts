@@ -73,6 +73,31 @@ useful_scripts/
 | `protobuf_vscode_import_fix.py` | VS Code import paths |
 | `protobuf_downgrade_to_3_20.sh` | pip protobuf downgrade for old protoc |
 
+## Wave 1 operator smoke (2026-06)
+
+Run from this directory. Configure via env vars — no secrets in git.
+
+| Script | Purpose |
+|--------|---------|
+| `usm_fleet_smoke.py` | `USM_SERVICES_YAML` + TCP ports + optional `USM_URL` |
+| `usm_multi_log_tail.sh` | Tail logs for one `services.yaml` group |
+| `cloudflared_tunnel_cleanup.sh` | List/kill duplicate `cloudflared` |
+| `cfms_tunnel_matrix_smoke.py` | `CFMS_URL` status + ingress HEAD probes |
+| `mexc_live_stats_health.py` | `MEXC_TD_URL` monitoring + dead symbols |
+| `gate_live_stats_health.py` | `GATE_TD_URL` monitoring + dead symbols |
+| `mexc_reload_symbols_cli.py` | POST reload + poll |
+| `geth_rpc_smoke.py` | `GETH_HTTP` / optional `GETH_WS` |
+| `dynexd_rpc_smoke.py` | `DYNEX_NODE_URL` getinfo + block |
+| `wp_dynex_ingest_smoke.py` | `WP_URL` + `DYNEX_WP_API_KEY` ingest |
+| `eth_gas_stack_smoke.py` | `GAS_PY_URL` + `GAS_NODE_URL` |
+| `le_shop_bridge_smoke.py` | WP applications + webhook + admin stats |
+| `le_crypto_store_smoke.py` | `/shop/products` + `/admin/stats` |
+| `util_telegrt_cleanup.py` | `TELEGRT_DIR` / `SOL_PUMP_HOME` |
+| `util_sol_pump_sync_sol.sh` | `SOL_PUMP_SRC` + `SOL_PUMP_DST` rsync |
+| `wp_theme_deploy_purge.sh` | `WP_THEME_SRC` + `WP_THEME_REMOTE` deploy |
+
+Smoke deps: `pip install -r requirements-smoke.txt`
+
 ## Quick start
 
 ```bash
