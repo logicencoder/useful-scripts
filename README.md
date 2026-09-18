@@ -131,7 +131,7 @@ WP / Hostinger SSH ops, DNX flow, karaoke, CS agent, MEV, live-stats deep probes
 | `wp_visitor_stats_remote_verify.py` | `WP_URL` tracking snippet check |
 | `wp_indexnow_queue_status.py` | MEXC/Gate IndexNow queue via wp-cli |
 | `dnx_mexc_flow_report.py` | `DNX_MEXC_DB` SQLite IN/OUT report |
-| `dnx_swap_smoke.py` | `DNX_SWAP_URL` status + nonce + node health |
+| `dex_swapper_smoke.py` | `DEX_SWAPPER_URL` status + nonce + node health |
 | `util_karaoke_operator_preflight.sh` | Node/ffmpeg/GPU/API preflight |
 | `util_karaoke_job_smoke.sh` | `KARAOKE_API` job process + poll |
 | `util_cs_agent_model_benchmark.sh` | `CS_AGENT_URL` /api/models + test-one |

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke bundle for dnx-swap-webapp FastAPI (:8024 default)."""
+"""Smoke bundle for DEX Swapper FastAPI (:8024 default)."""
 
 from __future__ import annotations
 
@@ -12,10 +12,13 @@ from util_smoke_http import get_json, print_header, tcp_open
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="DNX swap webapp smoke")
+    parser = argparse.ArgumentParser(description="DEX Swapper smoke")
     parser.add_argument(
         "--base-url",
-        default=os.environ.get("DNX_SWAP_URL", "http://127.0.0.1:8024"),
+        default=os.environ.get(
+            "DEX_SWAPPER_URL",
+            os.environ.get("DNX_SWAP_URL", "http://127.0.0.1:8024"),
+        ),
     )
     parser.add_argument("--strict", action="store_true")
     args = parser.parse_args()
